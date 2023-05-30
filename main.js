@@ -40,6 +40,7 @@ function operate(firstNumber, secondNumber, operator) {
 
 const buttons = document.querySelectorAll('.btn');
 const display = document.getElementById('calcDisplay');
+const deleteButton = document.querySelector('.deleteBtn');
 let firstNumber = 0;
 let secondNumber = 0;
 let operation;
@@ -47,6 +48,12 @@ let operation;
 buttons.forEach((currentButton) => {
     currentButton.addEventListener('click', () => {
         typeNumber(currentButton)})
+})
+
+deleteButton.addEventListener('click', () => {
+    let text = display.textContent;
+    text = text.slice(0, -1);
+    display.textContent = text;
 })
 
 function typeNumber(currentButton) {
