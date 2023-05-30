@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FDF4F5;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-weight: lighter;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+}
