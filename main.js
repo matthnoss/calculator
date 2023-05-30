@@ -1,22 +1,22 @@
 //functions for adding, subtracting, dividing, and multiplying
 
 function adding(firstNumber, secondNumber) {
-    let result = parseInt(firstNumber) + parseInt(secondNumber);
+    let result = parseFloat(firstNumber) + parseFloat(secondNumber);
     return result;
 }
 
 function subtracting(firstNumber, secondNumber) {
-    let result = parseInt(firstNumber) - parseInt(secondNumber);
+    let result = parseFloat(firstNumber) - parseFloat(secondNumber);
     return result;
 }
 
 function multiplying(firstNumber, secondNumber) {
-    let result = parseInt(firstNumber) * parseInt(secondNumber);
+    let result = parseFloat(firstNumber) * parseFloat(secondNumber);
     return result;
 }
 
 function deviding(firstNumber, secondNumber) {
-    let result = parseInt(firstNumber) / parseInt(secondNumber);
+    let result = parseFloat(firstNumber) / parseFloat(secondNumber);
     return result;
 }
 
@@ -49,17 +49,12 @@ buttons.forEach((currentButton) => {
         typeNumber(currentButton)})
 })
 
-// function typeNumber(currentButton) {
-//     if(display.textContent === '0') {
-//         clearDisplay();
-//     }
-//     display.textContent += currentButton.textContent;
-// }
-
 function typeNumber(currentButton) {
     if(display.textContent === '0' && currentButton.textContent === '.') {
         display.textContent += currentButton.textContent;
-    } else if (display.textContent === '0') {
+    } else if(display.textContent.includes('.') && currentButton.textContent === '.') {
+
+    } else if(display.textContent === '0') {
         clearDisplay();
         display.textContent += currentButton.textContent;
     } else {
@@ -149,6 +144,7 @@ equalsButton.addEventListener('click', () => {
 
     } else {
         let result = operate(firstNumber, secondNumber, operation);
+        console.log(result);
         result = Number(result.toFixed(5));
         clearDisplay(result);
     }
