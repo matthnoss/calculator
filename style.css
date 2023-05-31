@@ -14,9 +14,34 @@ body {
 #buttons {
     display: flex;
     flex-direction: column;
+    min-width: 50px;
 }
 
 #calculator {
     display: flex;
     flex-direction: column;
+    background-color: blanchedalmond;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.btn,
+.operationBtn,
+.equals {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 200px;
+    background-color: violet;
+    border-style: hidden;
+    margin: 5px;
+}
+
+.clearBtn,
+.deleteBtn {
+    display: flex;
+    align-items: self-e;
 }

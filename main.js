@@ -50,10 +50,17 @@ buttons.forEach((currentButton) => {
         typeNumber(currentButton)})
 })
 
+//delete button
+
 deleteButton.addEventListener('click', () => {
-    let text = display.textContent;
-    text = text.slice(0, -1);
-    display.textContent = text;
+    if(display.textContent !== '0') {
+        let text = display.textContent;
+        text = text.slice(0, -1);
+        display.textContent = text;
+    }
+    if(display.textContent.length === 0) {
+        clearDisplay('0');
+    }
 })
 
 function typeNumber(currentButton) {
