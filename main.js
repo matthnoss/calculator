@@ -1,37 +1,15 @@
-//functions for adding, subtracting, dividing, and multiplying
-
-function adding(firstNumber, secondNumber) {
-    let result = parseFloat(firstNumber) + parseFloat(secondNumber);
-    return result;
-}
-
-function subtracting(firstNumber, secondNumber) {
-    let result = parseFloat(firstNumber) - parseFloat(secondNumber);
-    return result;
-}
-
-function multiplying(firstNumber, secondNumber) {
-    let result = parseFloat(firstNumber) * parseFloat(secondNumber);
-    return result;
-}
-
-function deviding(firstNumber, secondNumber) {
-    let result = parseFloat(firstNumber) / parseFloat(secondNumber);
-    return result;
-}
-
 //function to operate calculator
 
 function operate(firstNumber, secondNumber, operator) {
     let result;
     if (operator === '+') {
-        result = adding(firstNumber, secondNumber);
+        result = parseFloat(firstNumber) + parseFloat(secondNumber);
     } else if (operator === '-') {
-        result = subtracting(firstNumber, secondNumber);
+        result = parseFloat(firstNumber) - parseFloat(secondNumber);
     } else if (operator === '*') {
-        result = multiplying(firstNumber, secondNumber);
+        result = parseFloat(firstNumber) * parseFloat(secondNumber);
     } else if (operator === '/') {
-        result = deviding(firstNumber, secondNumber);
+        result = parseFloat(firstNumber) / parseFloat(secondNumber);
     }
     return result;
 }
