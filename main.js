@@ -71,8 +71,10 @@ document.addEventListener('keyup', (KeyboardEvent) => {
             break;
         case 'Enter':
             equalsButtonFunc();
+            break;
         case '.':
             keyStrokeType(keyStroke);
+            break;
         default:
             console.log('no');
     }
