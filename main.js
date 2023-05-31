@@ -1,25 +1,22 @@
 //function to operate calculator
 
 function operate(firstNumber, secondNumber, operator) {
-    let result;
     if (operator === '+') {
-        result = parseFloat(firstNumber) + parseFloat(secondNumber);
+        return parseFloat(firstNumber) + parseFloat(secondNumber);
     } else if (operator === '-') {
-        result = parseFloat(firstNumber) - parseFloat(secondNumber);
+        return parseFloat(firstNumber) - parseFloat(secondNumber);
     } else if (operator === '*') {
-        result = parseFloat(firstNumber) * parseFloat(secondNumber);
+        return parseFloat(firstNumber) * parseFloat(secondNumber);
     } else if (operator === '/') {
-        result = parseFloat(firstNumber) / parseFloat(secondNumber);
+        return parseFloat(firstNumber) / parseFloat(secondNumber);
     }
-    return result;
 }
 
 function deleteCharacter() {
     if (display.textContent !== '0') {
-        let text = display.textContent;
-        text = text.slice(0, -1);
-        display.textContent = text;
+        display.textContent = display.textContent.slice(0, -1);
     }
+
     if (display.textContent.length === 0) {
         clearDisplay('0');
     }
@@ -52,7 +49,7 @@ function typeNumber(input) {
 
 function clearDisplay(input) {
     if (input === null) {
-        display.textContent = '';
+        display.textContent = '0';
     } else {
         display.textContent = input;
     }
