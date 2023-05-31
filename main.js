@@ -50,6 +50,34 @@ buttons.forEach((currentButton) => {
         typeNumber(currentButton)})
 })
 
+document.addEventListener('keyup', (KeyboardEvent) => {
+    let keyStroke = KeyboardEvent.key;
+    if(keyStroke >= 0 && keyStroke <= 9) {
+        keyStrokeType(keyStroke);
+    }
+
+    switch(keyStroke) {
+        case '+':
+            operationButtonPressed(keyStroke);
+            break;
+        case '-':
+            operationButtonPressed(keyStroke);
+            break;
+        case '*':
+            operationButtonPressed(keyStroke);
+            break;
+        case '/':
+            operationButtonPressed(keyStroke);
+            break;
+        case 'Enter':
+            equalsButtonFunc();
+        case '.':
+            keyStrokeType(keyStroke);
+        default:
+            console.log('no');
+    }
+})
+
 //delete button
 
 deleteButton.addEventListener('click', () => {
@@ -62,6 +90,21 @@ deleteButton.addEventListener('click', () => {
         clearDisplay('0');
     }
 })
+
+//function for entering numbers via keyboard
+
+function keyStrokeType(textContent) {
+    if(display.textContent === '0' && textContent === '.') {
+        display.textContent += textContent;
+    } else if(display.textContent.includes('.') && textContent === '.') {
+
+    } else if(display.textContent === '0') {
+        clearDisplay();
+        display.textContent += textContent;
+    } else {
+        display.textContent += textContent;
+    }
+}
 
 function typeNumber(currentButton) {
     if(display.textContent === '0' && currentButton.textContent === '.') {
@@ -110,7 +153,12 @@ let lastOperation = '0';
 //operating function
 function operationButtonPressed(input) {
     lastOperation = operation;
-    operation = input.textContent;
+
+    if(input.textContent == undefined) {
+        operation = input;
+    } else {
+        operation = input.textContent;
+    }
 
     if(lastOperation == '0') {
         lastOperation = input.textContent;
@@ -146,6 +194,28 @@ function operationButtonPressed(input) {
 const equalsButton = document.querySelector('.equals');
 
 equalsButton.addEventListener('click', () => {
+    // secondNumber = display.textContent;
+    // console.log(firstNumber);
+    // console.log(secondNumber);
+    // console.log(operation);
+
+    // if (secondNumber == 0 && operation == '/') {
+    //     clearDisplay("Cannot divide by zero.");
+    //     firstNumber, secondNumber = '0';
+    // } else if (firstNumber == '0' || secondNumber == '0') {
+
+    // } else {
+    //     let result = operate(firstNumber, secondNumber, operation);
+    //     console.log(result);
+    //     result = Number(result.toFixed(5));
+    //     clearDisplay(result);
+    // }
+
+    equalsButtonFunc();
+    
+})
+
+function equalsButtonFunc() {
     secondNumber = display.textContent;
     console.log(firstNumber);
     console.log(secondNumber);
@@ -162,7 +232,4 @@ equalsButton.addEventListener('click', () => {
         result = Number(result.toFixed(5));
         clearDisplay(result);
     }
-
-
-    
-})
+}
