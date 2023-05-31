@@ -47,34 +47,25 @@ function deleteCharacter() {
     }
 }
 
-function keyStrokeType(textContent) {
-    if (display.textContent.length < 16) {
-        if (display.textContent === '0' && textContent === '.') {
-            display.textContent += textContent;
-        } else if (display.textContent.includes('.') && textContent === '.') {
+function typeNumber(input) {
+    let textValue;
 
-        } else if (display.textContent === '0') {
-            clearDisplay();
-            display.textContent += textContent;
-        } else {
-            display.textContent += textContent;
-        }
+    if (input.textContent == undefined) {
+        textValue = input;
+    } else {
+        textValue = input.textContent;
     }
 
-}
-
-function typeNumber(currentButton) {
-
     if (display.textContent.length < 16) {
-        if (display.textContent === '0' && currentButton.textContent === '.') {
-            display.textContent += currentButton.textContent;
-        } else if (display.textContent.includes('.') && currentButton.textContent === '.') {
+        if (display.textContent === '0' && textValue === '.') {
+            display.textContent += textValue;
+        } else if (display.textContent.includes('.') && textValue === '.') {
 
         } else if (display.textContent === '0') {
             clearDisplay();
-            display.textContent += currentButton.textContent;
+            display.textContent += textValue;
         } else {
-            display.textContent += currentButton.textContent;
+            display.textContent += textValue;
         }
     }
 
@@ -175,7 +166,7 @@ buttons.forEach((currentButton) => {
 document.addEventListener('keyup', (KeyboardEvent) => {
     let keyStroke = KeyboardEvent.key;
     if (keyStroke >= 0 && keyStroke <= 9) {
-        keyStrokeType(keyStroke);
+        typeNumber(keyStroke);
     }
 
     switch (keyStroke.toLowerCase()) {
@@ -198,7 +189,7 @@ document.addEventListener('keyup', (KeyboardEvent) => {
             equalsButtonFunc();
             break;
         case '.':
-            keyStrokeType(keyStroke);
+            typeNumber(keyStroke);
             break;
         case 'backspace':
             deleteCharacter();
