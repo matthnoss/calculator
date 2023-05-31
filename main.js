@@ -56,7 +56,7 @@ document.addEventListener('keyup', (KeyboardEvent) => {
         keyStrokeType(keyStroke);
     }
 
-    switch(keyStroke) {
+    switch(keyStroke.toLowerCase()) {
         case '+':
             operationButtonPressed(keyStroke);
             break;
@@ -69,13 +69,23 @@ document.addEventListener('keyup', (KeyboardEvent) => {
         case '/':
             operationButtonPressed(keyStroke);
             break;
-        case 'Enter':
+        case 'enter':
+            equalsButtonFunc();
+            break;
+        case '=':
             equalsButtonFunc();
             break;
         case '.':
             keyStrokeType(keyStroke);
             break;
+        case 'backspace':
+            deleteCharacter();
+            break;
+        case 'c':
+            clearValues();
+            break;
         default:
+            console.log(keyStroke);
             console.log('no');
     }
 })
@@ -83,6 +93,19 @@ document.addEventListener('keyup', (KeyboardEvent) => {
 //delete button
 
 deleteButton.addEventListener('click', () => {
+    // if(display.textContent !== '0') {
+    //     let text = display.textContent;
+    //     text = text.slice(0, -1);
+    //     display.textContent = text;
+    // }
+    // if(display.textContent.length === 0) {
+    //     clearDisplay('0');
+    // }
+    deleteCharacter();
+})
+
+
+function deleteCharacter() {
     if(display.textContent !== '0') {
         let text = display.textContent;
         text = text.slice(0, -1);
@@ -91,7 +114,7 @@ deleteButton.addEventListener('click', () => {
     if(display.textContent.length === 0) {
         clearDisplay('0');
     }
-})
+}
 
 //function for entering numbers via keyboard
 
@@ -135,10 +158,16 @@ function clearDisplay(input) {
 const clearButton = document.querySelector('.clearBtn')
 
 clearButton.addEventListener('click', () => {
+    clearValues();
+})
+
+function clearValues() {
     clearDisplay(0);
     firstNumber = '0';
     secondNumber = '0';
-})
+    operation = '0';
+    lastOperation = '0';
+}
 
 
 //operation buttons
