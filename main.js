@@ -47,16 +47,17 @@ let operation;
 
 buttons.forEach((currentButton) => {
     currentButton.addEventListener('click', () => {
-        typeNumber(currentButton)})
+        typeNumber(currentButton)
+    })
 })
 
 document.addEventListener('keyup', (KeyboardEvent) => {
     let keyStroke = KeyboardEvent.key;
-    if(keyStroke >= 0 && keyStroke <= 9) {
+    if (keyStroke >= 0 && keyStroke <= 9) {
         keyStrokeType(keyStroke);
     }
 
-    switch(keyStroke.toLowerCase()) {
+    switch (keyStroke.toLowerCase()) {
         case '+':
             operationButtonPressed(keyStroke);
             break;
@@ -93,25 +94,17 @@ document.addEventListener('keyup', (KeyboardEvent) => {
 //delete button
 
 deleteButton.addEventListener('click', () => {
-    // if(display.textContent !== '0') {
-    //     let text = display.textContent;
-    //     text = text.slice(0, -1);
-    //     display.textContent = text;
-    // }
-    // if(display.textContent.length === 0) {
-    //     clearDisplay('0');
-    // }
     deleteCharacter();
 })
 
 
 function deleteCharacter() {
-    if(display.textContent !== '0') {
+    if (display.textContent !== '0') {
         let text = display.textContent;
         text = text.slice(0, -1);
         display.textContent = text;
     }
-    if(display.textContent.length === 0) {
+    if (display.textContent.length === 0) {
         clearDisplay('0');
     }
 }
@@ -119,11 +112,11 @@ function deleteCharacter() {
 //function for entering numbers via keyboard
 
 function keyStrokeType(textContent) {
-    if(display.textContent === '0' && textContent === '.') {
+    if (display.textContent === '0' && textContent === '.') {
         display.textContent += textContent;
-    } else if(display.textContent.includes('.') && textContent === '.') {
+    } else if (display.textContent.includes('.') && textContent === '.') {
 
-    } else if(display.textContent === '0') {
+    } else if (display.textContent === '0') {
         clearDisplay();
         display.textContent += textContent;
     } else {
@@ -132,17 +125,17 @@ function keyStrokeType(textContent) {
 }
 
 function typeNumber(currentButton) {
-    if(display.textContent === '0' && currentButton.textContent === '.') {
+    if (display.textContent === '0' && currentButton.textContent === '.') {
         display.textContent += currentButton.textContent;
-    } else if(display.textContent.includes('.') && currentButton.textContent === '.') {
+    } else if (display.textContent.includes('.') && currentButton.textContent === '.') {
 
-    } else if(display.textContent === '0') {
+    } else if (display.textContent === '0') {
         clearDisplay();
         display.textContent += currentButton.textContent;
     } else {
         display.textContent += currentButton.textContent;
     }
-    
+
 }
 
 function clearDisplay(input) {
@@ -151,7 +144,7 @@ function clearDisplay(input) {
     } else {
         display.textContent = input;
     }
-    
+
 }
 
 //clear button functionality
@@ -185,19 +178,19 @@ let lastOperation = '0';
 function operationButtonPressed(input) {
     lastOperation = operation;
 
-    if(input.textContent == undefined) {
+    if (input.textContent == undefined) {
         operation = input;
     } else {
         operation = input.textContent;
     }
 
-    if(lastOperation == '0') {
+    if (lastOperation == '0') {
         lastOperation = input.textContent;
     }
     let result;
-    
 
-    if (firstNumber == '0'){
+
+    if (firstNumber == '0') {
         firstNumber = display.textContent;
         clearDisplay('0');
     } else if (secondNumber == '0') {
@@ -208,7 +201,7 @@ function operationButtonPressed(input) {
             firstNumber = display.textContent;
             clearDisplay('0');
         }
-    } 
+    }
 
     if (firstNumber != '0' && secondNumber != '0') {
         console.log('cond.')
@@ -225,25 +218,8 @@ function operationButtonPressed(input) {
 const equalsButton = document.querySelector('.equals');
 
 equalsButton.addEventListener('click', () => {
-    // secondNumber = display.textContent;
-    // console.log(firstNumber);
-    // console.log(secondNumber);
-    // console.log(operation);
-
-    // if (secondNumber == 0 && operation == '/') {
-    //     clearDisplay("Cannot divide by zero.");
-    //     firstNumber, secondNumber = '0';
-    // } else if (firstNumber == '0' || secondNumber == '0') {
-
-    // } else {
-    //     let result = operate(firstNumber, secondNumber, operation);
-    //     console.log(result);
-    //     result = Number(result.toFixed(5));
-    //     clearDisplay(result);
-    // }
-
     equalsButtonFunc();
-    
+
 })
 
 function equalsButtonFunc() {
